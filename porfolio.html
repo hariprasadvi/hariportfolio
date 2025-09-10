@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hariprasad V I - Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      background: #121212;
+      color: #e0e0e0;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      scroll-snap-align: start;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Big centered name (only About section) */
+    .big-name {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #00e5ff;
+      margin-bottom: 1rem;
+    }
+
+    /* Sticky name only inside Contact */
+    .sticky-name {
+      position: sticky;
+      top: 0;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00e5ff;
+      background: #121212;
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    /* Sticky menu (always visible) */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #1e1e1e;
+      padding: 0.8rem;
+      text-align: center;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #00e5ff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00bcd4;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 1rem 0;
+      color: #00e5ff;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .card {
+      background: #1e1e1e;
+      color: #e0e0e0;
+      padding: 1.5rem;
+      margin: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      max-width: 600px;
+      width: 90%;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 229, 255, 0.5);
+    }
+
+    footer {
+      background: #1e1e1e;
+      color: #bbb;
+      padding: 1rem;
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    a { color: #00e5ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .big-name { font-size: 2.2rem; }
+      .sticky-name { font-size: 1.5rem; }
+      h2 { font-size: 1.5rem; }
+      p { font-size: 1rem; }
+      nav a { margin: 0 8px; font-size: 0.9rem; }
+    }
+
+    @media (max-width: 500px) {
+      .big-name { font-size: 1.8rem; }
+      .sticky-name { font-size: 1.2rem; padding: 0.8rem; }
+      h2 { font-size: 1.2rem; }
+      p { font-size: 0.9rem; }
+      nav a { margin: 0 5px; font-size: 0.85rem; }
+      footer { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky menu (always visible) -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="big-name">Hariprasad V I</div>
+    <h2>About Me</h2>
+    <p>I am a B.Tech Computer Science student seeking opportunities to apply my technical and problem-solving skills. I am eager to work on innovative projects, learn from experienced professionals, and grow into a successful software engineer in a supportive environment.</p>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>Government Engineering College Wayanad</h3>
+      <p>B.Tech in Computer Science, CGPA: 8.64</p>
+    </div>
+    <div class="card">
+      <h3>Government Higher Secondary School Kuthuparamba</h3>
+      <p>Higher Secondary, 98.1%</p>
+    </div>
+    <div class="card">
+      <h3>Amrita Vidyalayam Kuthuparamba</h3>
+      <p>Secondary Education (CBSE), CGPA: 9.1</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="card">Python, C, Java</div>
+    <div class="card">Web Development: MEAN Stack, Angular</div>
+    <div class="card">Machine Learning: Basic ML Training & Projects</div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Sanskrit Description Creator & Translator</h3>
+      <p>Machine learning-based system for Sanskrit generation and translation.</p>
+    </div>
+    <div class="card">
+      <h3>Role-Based Login System</h3>
+      <p>Developed a signup/login page using Angular with role-based access.</p>
+    </div>
+    <div class="card">
+      <h3>Assessment Manager</h3>
+      <p>Student assessment website using MEAN Stack.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="sticky-name">Hariprasad V I</div>
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:hariprasad_22b381cs@gecwyd.ac.in">hariprasad_22b381cs@gecwyd.ac.in</a></p>
+    <p>📞 Phone: +91-8086921695</p>
+    <p>📍 Location: Kuthuparamba, Kannur, Kerala</p>
+   
+  </section>
+
+</body>
+</html>
