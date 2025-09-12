@@ -32,7 +32,6 @@
       text-align: center;
     }
 
-    /* Big centered name (only About section) */
     .big-name {
       font-size: 3rem;
       font-weight: bold;
@@ -40,7 +39,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Sticky name only inside Contact */
     .sticky-name {
       position: sticky;
       top: 0;
@@ -54,26 +52,63 @@
       z-index: 1000;
     }
 
-    /* Sticky menu (always visible) */
+    /* Navbar */
     nav {
       position: sticky;
       top: 0;
       background: #1e1e1e;
       padding: 0.8rem;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
       z-index: 999;
     }
 
     nav a {
       color: #00e5ff;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 10px;
       font-weight: bold;
       transition: color 0.3s;
     }
 
     nav a:hover {
       color: #00bcd4;
+    }
+
+    /* Search bar */
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #121212;
+      border: 1px solid #00e5ff;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .search-box input {
+      padding: 6px 10px;
+      border: none;
+      outline: none;
+      background: #121212;
+      color: #e0e0e0;
+      width: 180px;
+    }
+
+    .search-box button {
+      background: #00e5ff;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      color: #121212;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .search-box button:hover {
+      background: #00bcd4;
     }
 
     h2 {
@@ -106,6 +141,13 @@
       box-shadow: 0 8px 20px rgba(0, 229, 255, 0.5);
     }
 
+    .highlight {
+      background: yellow;
+      color: black;
+      font-weight: bold;
+      padding: 2px;
+    }
+
     footer {
       background: #1e1e1e;
       color: #bbb;
@@ -119,44 +161,65 @@
     a { color: #00e5ff; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .big-name { font-size: 2.2rem; }
-      .sticky-name { font-size: 1.5rem; }
-      h2 { font-size: 1.5rem; }
-      p { font-size: 1rem; }
-      nav a { margin: 0 8px; font-size: 0.9rem; }
+    /* 🔹 Responsive Design */
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      nav a {
+        display: inline-block;
+        margin: 5px;
+        font-size: 0.95rem;
+      }
+      .search-box {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .search-box input {
+        flex: 1;
+        width: auto;
+      }
     }
 
-    @media (max-width: 500px) {
-      .big-name { font-size: 1.8rem; }
-      .sticky-name { font-size: 1.2rem; padding: 0.8rem; }
-      h2 { font-size: 1.2rem; }
-      p { font-size: 0.9rem; }
-      nav a { margin: 0 5px; font-size: 0.85rem; }
-      footer { font-size: 0.8rem; }
+    @media (max-width: 600px) {
+      .big-name { font-size: 2rem; }
+      .sticky-name { font-size: 1.5rem; }
+      h2 { font-size: 1.4rem; }
+      p { font-size: 0.95rem; }
+      nav a { font-size: 0.85rem; }
+      .search-box input { font-size: 0.9rem; }
+    }
+
+    @media (max-width: 400px) {
+      nav a { font-size: 0.75rem; margin: 2px; }
+      .search-box input { font-size: 0.85rem; }
+      .search-box button { font-size: 0.8rem; padding: 5px 8px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky menu (always visible) -->
+  <!-- Navbar with Search -->
   <nav>
     <a href="#about">About</a>
     <a href="#education">Education</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search...">
+      <button onclick="searchPortfolio()">Go</button>
+    </div>
   </nav>
 
-  <!-- About Section -->
   <section id="about">
     <div class="big-name">Hariprasad V I</div>
     <h2>About Me</h2>
     <p>I am a B.Tech Computer Science student seeking opportunities to apply my technical and problem-solving skills. I am eager to work on innovative projects, learn from experienced professionals, and grow into a successful software engineer in a supportive environment.</p>
   </section>
 
-  <!-- Education -->
   <section id="education">
     <h2>Education</h2>
     <div class="card">
@@ -173,7 +236,6 @@
     </div>
   </section>
 
-  <!-- Skills -->
   <section id="skills">
     <h2>Technical Skills</h2>
     <div class="card">Python, C, Java</div>
@@ -181,7 +243,6 @@
     <div class="card">Machine Learning: Basic ML Training & Projects</div>
   </section>
 
-  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="card">
@@ -198,15 +259,40 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <div class="sticky-name">Hariprasad V I</div>
     <h2>Contact</h2>
     <p>📧 Email: <a href="mailto:hariprasad_22b381cs@gecwyd.ac.in">hariprasad_22b381cs@gecwyd.ac.in</a></p>
     <p>📞 Phone: +91-8086921695</p>
     <p>📍 Location: Kuthuparamba, Kannur, Kerala</p>
-   
   </section>
 
+  <script>
+    function searchPortfolio() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const sections = document.querySelectorAll("section");
+      let found = false;
+
+      // Clear old highlights
+      document.querySelectorAll(".highlight").forEach(el => {
+        el.outerHTML = el.innerText;
+      });
+
+      if (!query) return;
+
+      sections.forEach(section => {
+        if (section.innerText.toLowerCase().includes(query) && !found) {
+          const regex = new RegExp(`(${query})`, "gi");
+          section.innerHTML = section.innerHTML.replace(regex, `<span class="highlight">$1</span>`);
+          section.scrollIntoView({ behavior: "smooth" });
+          found = true;
+        }
+      });
+
+      if (!found) {
+        alert("No results found!");
+      }
+    }
+  </script>
 </body>
 </html>
